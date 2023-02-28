@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Pickupable
+  - TargetZone
   layers:
   - Default
   - TransparentFX

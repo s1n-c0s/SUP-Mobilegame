@@ -47,3 +47,4 @@ public class PickUpObject : MonoBehaviour
         }
     }
 }
+
