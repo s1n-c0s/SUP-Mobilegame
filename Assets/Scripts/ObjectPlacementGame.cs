@@ -92,18 +92,18 @@ public class ObjectPlacementGame : MonoBehaviour
     public GameObject targetZone;
     public GameObject objectToPlace;
     public GameObject playerHand;
-    public Text successText;
+   // public Text successText;
 
     private bool hasWon = false;
     private bool isPlaced = false;
     private bool isHolding = false;
 
-    void Start()
+    /*void Start()
     {
-        // Hide the success text
+        
         successText.enabled = false;
     }
-
+*/
     void Update()
     {
         if (isPlaced && !hasWon)
@@ -120,7 +120,7 @@ public class ObjectPlacementGame : MonoBehaviour
         if (isHolding && Input.GetMouseButtonUp(0))
         {
             // Display the success text
-            successText.enabled = true;
+            //successText.enabled = true;
         }
     }
 
@@ -137,7 +137,7 @@ public class ObjectPlacementGame : MonoBehaviour
             isHolding = true;
 
             // Hide the success text
-            successText.enabled = false;
+           // successText.enabled = false;
         }
     }
 
@@ -154,7 +154,7 @@ public class ObjectPlacementGame : MonoBehaviour
             isHolding = false;
 
             // Display the success text
-            successText.enabled = true;
+            //successText.enabled = true;
         }
     }
 }
