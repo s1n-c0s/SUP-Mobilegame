@@ -84,7 +84,7 @@ public class ObjectPlacementGame : MonoBehaviour
 }*/
 
 
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class ObjectPlacementGame : MonoBehaviour
@@ -98,12 +98,12 @@ public class ObjectPlacementGame : MonoBehaviour
     private bool isPlaced = false;
     private bool isHolding = false;
 
-    /*void Start()
+    *//*void Start()
     {
         
         successText.enabled = false;
     }
-*/
+*//*
     void Update()
     {
         if (isPlaced && !hasWon)
@@ -158,4 +158,84 @@ public class ObjectPlacementGame : MonoBehaviour
         }
     }
 }
+*/
 
+
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ObjectPlacementGame : MonoBehaviour
+{
+    public GameObject targetZone;
+    public GameObject objectToPlace;
+    public GameObject playerHand;
+    public Text destroyedText;
+
+    private bool hasWon = false;
+    private bool isPlaced = false;
+
+    void Start()
+    {
+        // Set the destroyed text to inactive initially
+        destroyedText.gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+       /* if (objectToPlace.transform.position == targetZone.transform.position && !hasWon)
+        {
+            // Destroy the object
+            Destroy(objectToPlace);
+
+            // Set the destroyed text to active and update its text
+            destroyedText.gameObject.SetActive(true);
+            destroyedText.text = "SUCCESS!";
+
+            Debug.Log("SUCCESS!");
+        }
+        else */
+        if (isPlaced && !hasWon)
+        {
+            // Move the object to the center of the target zone
+            objectToPlace.transform.position = targetZone.transform.position;
+
+            // Set hasWon to true
+            hasWon = true;
+
+            Debug.Log("You win!");
+            Destroy(objectToPlace);
+
+            //Set the destroyed text to active and update its text
+            destroyedText.gameObject.SetActive(true);
+            destroyedText.text = "SUCCESS!";
+
+            Debug.Log("SUCCESS!");
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == objectToPlace && !hasWon)
+        {
+            // Move the object to the player's hand and parent it to the hand
+            objectToPlace.transform.position = playerHand.transform.position;
+            objectToPlace.transform.parent = playerHand.transform;
+
+            // Set isPlaced to true
+            isPlaced = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == objectToPlace && !hasWon)
+        {
+            // Unparent the object from the player's hand and drop it
+            objectToPlace.transform.parent = null;
+            objectToPlace.GetComponent<Rigidbody>().isKinematic = false;
+
+            // Set isPlaced to false
+            isPlaced = false;
+        }
+    }
+}
