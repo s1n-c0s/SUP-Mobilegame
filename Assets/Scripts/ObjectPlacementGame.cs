@@ -81,10 +81,10 @@ public class ObjectPlacementGame : MonoBehaviour
             isPlaced = false;
         }
     }
-}*//*
+}*/
 
 
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class ObjectPlacementGame : MonoBehaviour
@@ -92,27 +92,18 @@ public class ObjectPlacementGame : MonoBehaviour
     public GameObject targetZone;
     public GameObject objectToPlace;
     public GameObject playerHand;
-    public Text successText;
+   // public Text successText;
 
-    
     private bool hasWon = false;
     private bool isPlaced = false;
     private bool isHolding = false;
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            successText.text = "SUCCESS!";
-        }
-    }
 
-
-    void Start()
+    *//*void Start()
     {
-        // Hide the success text
+        
         successText.enabled = false;
     }
-
+*//*
     void Update()
     {
         if (isPlaced && !hasWon)
@@ -129,11 +120,11 @@ public class ObjectPlacementGame : MonoBehaviour
         if (isHolding && Input.GetMouseButtonUp(0))
         {
             // Display the success text
-            successText.enabled = true;
+            //successText.enabled = true;
         }
     }
 
-    void OnTriggerEnter (Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == objectToPlace && !hasWon)
         {
@@ -146,7 +137,7 @@ public class ObjectPlacementGame : MonoBehaviour
             isHolding = true;
 
             // Hide the success text
-            successText.enabled = false;
+           // successText.enabled = false;
         }
     }
 
@@ -163,66 +154,11 @@ public class ObjectPlacementGame : MonoBehaviour
             isHolding = false;
 
             // Display the success text
-            successText.enabled = true;
+            //successText.enabled = true;
         }
     }
 }
-
 */
-
-/*using UnityEngine;
-
-public class ObjectPlacementGame : MonoBehaviour
-{
-    public GameObject targetZone;
-    public GameObject objectToPlace;
-    public GameObject playerHand;
-
-    private bool hasWon = false;
-    private bool isPlaced = false;
-
-    void Update()
-    {
-        if (isPlaced && !hasWon)
-        {
-            // Move the object to the center of the target zone
-            objectToPlace.transform.position = targetZone.transform.position;
-
-            // Set hasWon to true
-            hasWon = true;
-
-            Debug.Log("You win!");
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == objectToPlace && !hasWon)
-        {
-            // Move the object to the player's hand and parent it to the hand
-            *//*objectToPlace.transform.position = playerHand.transform.position;
-            objectToPlace.transform.parent = playerHand.transform;*//*
-            Destroy(gameObject);
-
-            // Set isPlaced to true
-            isPlaced = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == objectToPlace && !hasWon)
-        {
-            // Unparent the object from the player's hand and drop it
-           *//* objectToPlace.transform.parent = null;
-            objectToPlace.GetComponent<Rigidbody>().isKinematic = false;*//*
-           Destroy(objectToPlace.transform);
-
-            // Set isPlaced to false
-            isPlaced = false;
-        }
-    }
-}*/
 
 
 using UnityEngine;
@@ -233,13 +169,31 @@ public class ObjectPlacementGame : MonoBehaviour
     public GameObject targetZone;
     public GameObject objectToPlace;
     public GameObject playerHand;
-    public Text successText;
+    public Text destroyedText;
 
     private bool hasWon = false;
     private bool isPlaced = false;
 
+    void Start()
+    {
+        // Set the destroyed text to inactive initially
+        destroyedText.gameObject.SetActive(false);
+    }
+
     void Update()
     {
+       /* if (objectToPlace.transform.position == targetZone.transform.position && !hasWon)
+        {
+            // Destroy the object
+            Destroy(objectToPlace);
+
+            // Set the destroyed text to active and update its text
+            destroyedText.gameObject.SetActive(true);
+            destroyedText.text = "SUCCESS!";
+
+            Debug.Log("SUCCESS!");
+        }
+        else */
         if (isPlaced && !hasWon)
         {
             // Move the object to the center of the target zone
@@ -249,6 +203,13 @@ public class ObjectPlacementGame : MonoBehaviour
             hasWon = true;
 
             Debug.Log("You win!");
+            Destroy(objectToPlace);
+
+            //Set the destroyed text to active and update its text
+            destroyedText.gameObject.SetActive(true);
+            destroyedText.text = "SUCCESS!";
+
+            Debug.Log("SUCCESS!");
         }
     }
 
@@ -257,16 +218,11 @@ public class ObjectPlacementGame : MonoBehaviour
         if (other.gameObject == objectToPlace && !hasWon)
         {
             // Move the object to the player's hand and parent it to the hand
-            /*objectToPlace.transform.position = playerHand.transform.position;
-            objectToPlace.transform.parent = playerHand.transform;*/
-            Destroy(gameObject);
+            objectToPlace.transform.position = playerHand.transform.position;
+            objectToPlace.transform.parent = playerHand.transform;
 
             // Set isPlaced to true
             isPlaced = true;
-
-            // Destroy the target zone and display success text
-            Destroy(targetZone);
-            successText.text = "SUCCESS!";
         }
     }
 
@@ -275,9 +231,8 @@ public class ObjectPlacementGame : MonoBehaviour
         if (other.gameObject == objectToPlace && !hasWon)
         {
             // Unparent the object from the player's hand and drop it
-            /* objectToPlace.transform.parent = null;
-             objectToPlace.GetComponent<Rigidbody>().isKinematic = false;*/
-            Destroy(objectToPlace.transform);
+            objectToPlace.transform.parent = null;
+            objectToPlace.GetComponent<Rigidbody>().isKinematic = false;
 
             // Set isPlaced to false
             isPlaced = false;
