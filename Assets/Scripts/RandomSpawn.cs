@@ -1,16 +1,16 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class RandomSpawn: MonoBehaviour
 {
-    public GameObject[] gameobj;
+    public GameObject[] Task;
     public Vector3 spawnValues , center, size;
     public float spawnWait, spawnMostWait, spawnLeasWait;
-    public int startWait,enemiesSpawned = 0,maxEnemies;
+    public int startWait,taskSpawned = 0,maxTask;
     public bool stop;
 
-    int randEnemy;
+    int randTask;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (maxEnemies <= enemiesSpawned)
+        if (maxTask <= taskSpawned)
         {
             stop = true;
         }
@@ -32,11 +32,11 @@ public class Spawner : MonoBehaviour
 
     }
 
-    *//*public void SpawnArea()
+    /*public void SpawnArea()
     {
         Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2), Random.Range(-size.z / 2, size.z / 2));
    
-    }
+    }*/
 
     IEnumerator waitSpawner()
     {
@@ -44,10 +44,10 @@ public class Spawner : MonoBehaviour
         
         while (!stop)
         {
-            enemiesSpawned++;
-            randEnemy = Random.Range(0 , 2);
+            taskSpawned++;
+            randTask = Random.Range(0 , 2);
             Vector3 spawnPositon = new Vector3 (Random.Range(-spawnValues.x, spawnValues.x), 1, Random.Range(-spawnValues.z, spawnValues.z)); //maybe
-            Instantiate(gameobj[randEnemy], spawnPositon + transform.position, gameObject.transform.rotation);//maybe
+            Instantiate(Task[randTask], spawnPositon + transform.position, gameObject.transform.rotation);//maybe
             //Instantiate(enemie[randEnemy], spawnPositon + transform.TransformDirection(0, 0, 0), gameObject.transform.rotation);//maybe
             yield return new WaitForSeconds(spawnWait);
 
@@ -60,4 +60,3 @@ public class Spawner : MonoBehaviour
         Gizmos.DrawCube(transform.position, spawnValues); 
     }
 }
-*/

@@ -27,7 +27,7 @@ public class ObjectSpawner : MonoBehaviour
         spawnedObject = Instantiate(objectToSpawn, spawnLocation.position, Quaternion.identity);
     }
 
-    void Update()
+   /*void Update()
     {
         // if the spawned object is destroyed, spawn a new one at the same location
         if (spawnedObject == null)
@@ -43,5 +43,6 @@ public class ObjectSpawner : MonoBehaviour
 
             spawnedObject = Instantiate(objectToSpawn, spawnLocation.position, Quaternion.identity);
         }
-    }
+    }*/
 }
+
