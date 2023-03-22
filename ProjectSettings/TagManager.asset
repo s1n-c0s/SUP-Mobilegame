@@ -5,8 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - NUN
+  - DOME
+  - ANIMAL
+  - SPORT
+  - ICT1
+  - ICT2
+  - LAB
   - Pickupable
-  - TargetZone
   layers:
   - Default
   - TransparentFX
