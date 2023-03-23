@@ -11,6 +11,8 @@ public class ObjectPlacementGame : MonoBehaviour
     private bool hasWon = false;
     private bool isPlaced = false;
 
+    public CountdownTimer countdownTimer;
+
     void Start()
     {
         // Set the destroyed text to inactive initially
@@ -47,6 +49,14 @@ public class ObjectPlacementGame : MonoBehaviour
             destroyedText.text = "SUCCESS!";
 
             Debug.Log("SUCCESS!");
+            countdownTimer.hasWon = true;
+
+        }
+
+        if (hasWon)
+        {
+            // Freeze the player
+            playerHand.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
