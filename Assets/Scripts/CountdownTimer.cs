@@ -10,6 +10,7 @@ public class CountdownTimer : MonoBehaviour
 
     private float currentTime; // current time left
     private bool isTimerRunning; // flag to check if timer is running
+    public bool hasWon = false; // flag to check if player has won the game
 
     void Start()
     {
@@ -31,6 +32,12 @@ public class CountdownTimer : MonoBehaviour
             {
                 isTimerRunning = false; // stop the timer
                 GameOver(); // call the game over function
+            }
+
+            // Check if the player has won the game
+            if (hasWon)
+            {
+                isTimerRunning = false; // stop the timer
             }
         }
     }
