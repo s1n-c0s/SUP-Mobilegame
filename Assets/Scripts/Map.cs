@@ -22,6 +22,28 @@ public class Map : MonoBehaviour
 
     public void openMap()
     {
-        _amap.SetActive(!_amap.activeSelf);
+       
+        if (Time.timeScale == 1)
+        {
+            PauseGame();
+            _amap.SetActive(!_amap.activeSelf);  
+        }
+        else if (Time.timeScale == 0)
+        {
+            _amap.SetActive(!_amap.activeSelf);
+            ResumeGame();
+        }
+        
     }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
 }
