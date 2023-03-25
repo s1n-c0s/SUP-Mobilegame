@@ -7,7 +7,7 @@ public class ObjectPlacementGame : MonoBehaviour
     public GameObject targetZone;
     public GameObject objectToPlace;
     public GameObject playerHand;
-    public TextMeshProUGUI destroyedText;
+    public GameObject destroyedObject;
 
     private bool hasWon = false;
     private bool isPlaced = false;
@@ -16,24 +16,12 @@ public class ObjectPlacementGame : MonoBehaviour
 
     void Start()
     {
-        // Set the destroyed text to inactive initially
-        destroyedText.gameObject.SetActive(false);
+        // Set the destroyed object to inactive initially
+        destroyedObject.SetActive(false);
     }
 
     void Update()
     {
-        /* if (objectToPlace.transform.position == targetZone.transform.position && !hasWon)
-         {
-             // Destroy the object
-             Destroy(objectToPlace);
-
-             // Set the destroyed text to active and update its text
-             destroyedText.gameObject.SetActive(true);
-             destroyedText.text = "SUCCESS!";
-
-             Debug.Log("SUCCESS!");
-         }
-         else */
         if (isPlaced && !hasWon)
         {
             // Move the object to the center of the target zone
@@ -45,13 +33,10 @@ public class ObjectPlacementGame : MonoBehaviour
             Debug.Log("You win!");
             Destroy(objectToPlace);
 
-            //Set the destroyed text to active and update its text
-            destroyedText.gameObject.SetActive(true);
-            destroyedText.text = "SUCCESS!";
+            // Set the destroyed object to active after destroying the object to place
+            destroyedObject.SetActive(true);
 
-            Debug.Log("SUCCESS!");
             countdownTimer.hasWon = true;
-
         }
 
         if (hasWon)
