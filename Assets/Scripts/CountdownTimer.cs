@@ -25,7 +25,7 @@ public class CountdownTimer : MonoBehaviour
             currentTime -= Time.deltaTime; // reduce current time by deltaTime
 
             // Update the countdown UI text
-            countdownText.text = "Time Left: " + currentTime.ToString("0");
+            countdownText.text = currentTime.ToString("0.00");
 
             // Check if the timer has reached zero
             if (currentTime <= 0.0f)
