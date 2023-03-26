@@ -71,7 +71,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940003609736617938}
-  m_LocalRotation: {x: -0, y: 0.4225917, z: -0, w: 0.9063203}
+  m_LocalRotation: {x: 0, y: 0.42259452, z: 0, w: 0.9063189}
   m_LocalPosition: {x: -177.89, y: 0.11000013, z: -161.93}
   m_LocalScale: {x: 0.8302635, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 0
@@ -106,10 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db219eab4798a4f0c8f8157bd3a92982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetZone: {fileID: 0}
+  targetZone: {fileID: 940003609736617938}
   objectToPlace: {fileID: 0}
   playerHand: {fileID: 0}
-  destroyedText: {fileID: 0}
+  destroyedObject: {fileID: 0}
   countdownTimer: {fileID: 0}
 --- !u!114 &940003609736617937
 MonoBehaviour:
@@ -211,6 +211,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 1170970068873931921, guid: ae5795fe3246c44419763588dcc714ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 54c4588b135240946a560eede2212c4e, type: 2}
+    - target: {fileID: 5901893356585517859, guid: ae5795fe3246c44419763588dcc714ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c790f4e22bfbab6419621c76954b829e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5795fe3246c44419763588dcc714ff, type: 3}
 --- !u!4 &756931499007512751 stripped

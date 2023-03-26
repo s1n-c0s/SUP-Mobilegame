@@ -18,7 +18,7 @@ public class ChangeScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+      /*  if (Input.GetKeyDown(KeyCode.Escape))
         {
             ResumeGame();
            
@@ -26,7 +26,7 @@ public class ChangeScene : MonoBehaviour
             {
                 unlockCursor();
             }
-        }
+        }*/
     }
 
     public void GoTo(string name)

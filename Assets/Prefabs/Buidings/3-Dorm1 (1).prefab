@@ -71,7 +71,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8479261141616616127}
-  m_LocalRotation: {x: -0, y: 0.46059087, z: -0, w: 0.8876126}
+  m_LocalRotation: {x: 0, y: 0.46058705, z: 0, w: 0.88761455}
   m_LocalPosition: {x: -226.48, y: 0, z: 56.17}
   m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 1
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8479261141616616127}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db219eab4798a4f0c8f8157bd3a92982, type: 3}
   m_Name: 
@@ -109,7 +109,7 @@ MonoBehaviour:
   targetZone: {fileID: 0}
   objectToPlace: {fileID: 0}
   playerHand: {fileID: 0}
-  destroyedText: {fileID: 0}
+  destroyedObject: {fileID: 0}
   countdownTimer: {fileID: 0}
 --- !u!114 &8479261141616616126
 MonoBehaviour:
@@ -186,6 +186,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: d112e2732484bba4eaae6b0ff093de10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2104cb4ef1094a347b8e22a1ed2512cb, type: 2}
+    - target: {fileID: -5911671349256272135, guid: d112e2732484bba4eaae6b0ff093de10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d7b406f7aa6e33408b53d7a02d478ee, type: 2}
+    - target: {fileID: -3942236498537746896, guid: d112e2732484bba4eaae6b0ff093de10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d7b406f7aa6e33408b53d7a02d478ee, type: 2}
     - target: {fileID: -3372522033569347474, guid: d112e2732484bba4eaae6b0ff093de10,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -216,6 +231,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 1797760339730403953, guid: d112e2732484bba4eaae6b0ff093de10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2104cb4ef1094a347b8e22a1ed2512cb, type: 2}
+    - target: {fileID: 4370951913967234905, guid: d112e2732484bba4eaae6b0ff093de10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d7b406f7aa6e33408b53d7a02d478ee, type: 2}
     - target: {fileID: 4415147283803330970, guid: d112e2732484bba4eaae6b0ff093de10,
         type: 3}
       propertyPath: m_StaticEditorFlags

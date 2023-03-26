@@ -116,7 +116,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3933803907491496663}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 158.7, y: 0, z: 18.1}
   m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
   m_ConstrainProportionsScale: 1
@@ -139,8 +139,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 183.57436, y: 4.469918, z: 126.57455}
-  m_Center: {x: -14.618862, y: 1.7349578, z: -3.9501312}
+  m_Size: {x: 183.70897, y: 4.469918, z: 132.34552}
+  m_Center: {x: -14.686109, y: 1.7349578, z: -6.8356066}
 --- !u!114 &3933803907491496657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db219eab4798a4f0c8f8157bd3a92982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetZone: {fileID: 0}
+  targetZone: {fileID: 3933803907491496663}
   objectToPlace: {fileID: 0}
   playerHand: {fileID: 0}
-  destroyedText: {fileID: 0}
+  destroyedObject: {fileID: 0}
   countdownTimer: {fileID: 0}
 --- !u!114 &3933803907491496662
 MonoBehaviour:
@@ -283,6 +283,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: -5722227467188323949, guid: 9e86ba02e501c024c8fe665d3d8cb6c5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2104cb4ef1094a347b8e22a1ed2512cb, type: 2}
     - target: {fileID: -4328777192098592774, guid: 9e86ba02e501c024c8fe665d3d8cb6c5,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -328,6 +333,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8263671631863799961, guid: 9e86ba02e501c024c8fe665d3d8cb6c5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d7b406f7aa6e33408b53d7a02d478ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e86ba02e501c024c8fe665d3d8cb6c5, type: 3}
 --- !u!4 &3539007639329839773 stripped

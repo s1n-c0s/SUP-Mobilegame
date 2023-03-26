@@ -7,6 +7,7 @@ using TMPro;
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectsToSpawn;
+    public GameObject[] Flag;
     public TextMeshProUGUI objectNameText;
 
     void Start()
@@ -24,6 +25,7 @@ public class ObjectSpawner : MonoBehaviour
 
         // toggle the active state of the chosen object
         objectToActivate.SetActive(true);
+        Flag[randomIndex].SetActive(true);
     }
 }
 
