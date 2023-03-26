@@ -12,6 +12,11 @@ public class ObjectPlacementGame : MonoBehaviour
     private bool hasWon = false;
     private bool isPlaced = false;
 
+    public GameObject particleEffect1Prefab;
+    public GameObject particleEffect2Prefab;
+    public AudioClip audioClip;
+    private bool particleEffectsPlayed = false;
+
     public CountdownTimer countdownTimer;
 
     void Start()
@@ -39,11 +44,28 @@ public class ObjectPlacementGame : MonoBehaviour
             countdownTimer.hasWon = true;
         }
 
-        if (hasWon)
+        /*if (hasWon)
         {
             // Freeze the player
             playerHand.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }*/
+        if (hasWon && !particleEffectsPlayed)
+        {
+            // Play the first particle effect
+            GameObject particleEffect1 = Instantiate(particleEffect1Prefab, objectToPlace.transform.position, Quaternion.identity);
+            Destroy(particleEffect1, 10f);
+
+            // Play the second particle effect
+            GameObject particleEffect2 = Instantiate(particleEffect2Prefab, objectToPlace.transform.position, Quaternion.identity);
+            Destroy(particleEffect2, 10f);
+
+            // Play the audio clip
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.PlayOneShot(audioClip);
+
+            particleEffectsPlayed = true;
         }
+
     }
 
     void OnTriggerEnter(Collider other)
