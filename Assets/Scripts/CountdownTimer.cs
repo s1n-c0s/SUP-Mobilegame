@@ -6,6 +6,8 @@ public class CountdownTimer : MonoBehaviour
 {
     public float startTime = 60.0f; // starting time in seconds
     public TextMeshProUGUI countdownText; // UI text object to display countdown
+    public Image filledImage1; // first UI image to display countdown progress
+    public Image filledImage2; // second UI image to display countdown progress
     public GameObject gameOverUi;
 
     private float currentTime; // current time left
@@ -26,6 +28,11 @@ public class CountdownTimer : MonoBehaviour
 
             // Update the countdown UI text
             countdownText.text = currentTime.ToString("0.00");
+
+            // Update the filled images
+            float progress = currentTime / startTime;
+            filledImage1.fillAmount = progress;
+            filledImage2.fillAmount = progress;
 
             // Check if the timer has reached zero
             if (currentTime <= 0.0f)
