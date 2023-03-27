@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectsToSpawn;
-    public Text objectNameText;
+    public GameObject[] Flag;
+    public TextMeshProUGUI objectNameText;
 
     void Start()
     {
@@ -18,11 +20,12 @@ public class ObjectSpawner : MonoBehaviour
         string objectName = objectToActivate.name;
 
         // set the text property of the objectNameText object
-        objectNameText.text = "Object to activate: " + objectName;
+        objectNameText.text = objectName;
         Debug.Log(objectNameText.text);
 
         // toggle the active state of the chosen object
         objectToActivate.SetActive(true);
+        Flag[randomIndex].SetActive(true);
     }
 }
 
