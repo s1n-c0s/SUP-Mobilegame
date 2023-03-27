@@ -23,6 +23,7 @@ public class CountdownTimer : MonoBehaviour
         currentTime = startTime; // set starting time
         isTimerRunning = true; // start the timer
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -104,7 +105,7 @@ public class CountdownTimer : MonoBehaviour
         }
         else if (Time.timeScale > 0)
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
