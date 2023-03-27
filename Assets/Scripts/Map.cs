@@ -14,16 +14,16 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+      /*  if (Input.GetKeyDown(KeyCode.M))
         {
             openMap();
-        }
+        }*/
     }
 
     public void openMap()
     {
-       
-        if (Time.timeScale == 1)
+
+        if (Time.timeScale > 0)
         {
             PauseGame();
             _amap.SetActive(!_amap.activeSelf);  

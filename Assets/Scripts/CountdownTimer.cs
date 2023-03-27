@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -14,10 +15,14 @@ public class CountdownTimer : MonoBehaviour
     private bool isTimerRunning; // flag to check if timer is running
     public bool hasWon = false; // flag to check if player has won the game
 
+    public GameObject UI_Replay;
+    public bool moveCursor;
+
     void Start()
     {
         currentTime = startTime; // set starting time
         isTimerRunning = true; // start the timer
+        Cursor.visible = false;
     }
 
     void Update()
@@ -47,6 +52,25 @@ public class CountdownTimer : MonoBehaviour
                 isTimerRunning = false; // stop the timer
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResumeGame();
+
+            if (moveCursor == true)
+            {
+                unlockCursor();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ResumeGame();
+
+            if (moveCursor == true)
+            {
+                unlockCursor();
+            }
+        }
     }
 
     void GameOver()
@@ -54,5 +78,33 @@ public class CountdownTimer : MonoBehaviour
         Time.timeScale = 0;
         gameOverUi.SetActive(true);
         // code to trigger the game over state
+    }
+
+    public void ResumeGame()
+    {
+        if (Time.timeScale == 0)//????????
+        {
+            Cursor.visible = false;
+            UI_Replay.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else if (Time.timeScale > 0)//????????
+        {
+            Cursor.visible = true;
+            UI_Replay.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void unlockCursor()
+    {
+        if (Time.timeScale == 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if (Time.timeScale > 0)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 }
